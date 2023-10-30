@@ -1,0 +1,64 @@
+---
+title: "CodeBook"
+author: "Savannah M"
+date: "2023-10-30"
+output: html_document
+---
+
+### Run_Analysis Codebook
+
+## Source Data
+The run_analysis data was derived from a Samsung Galaxy S smartphone's accelerometer
+and gyroscope located on a particpant's waist while they performed six activites including:
+walking, walking upstairs, walking downstairs, sitting, standing, and laying. 
+
+The following link contains the data's full description: https://archive.ics.uci.edu/dataset/240/human+activity+recognition+using+smartphones
+
+The following link contains the dataset: 
+ 
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+  
+
+## About the R Script
+The run_analysis code performs the following data prepation and data tidying defined
+necessary in the course project's instructions. 
+
+1. Downloading and loading the necessary packages.
+
+2. Reading the metadata and data into RStudio.
+
+3. Assigning the variables data. 
+    - The subject variable contains the subject train and subject test data using
+    the rbind() function. 
+    - The activity variable contains the activity train and activity test data
+    using the rbind() function. 
+    - The feature variable contains the feature train and feature test data using
+    the rbind() function. 
+    
+4. Creating the runDataset.
+    - The runDataset is created using the cbind() function on the subject, activity, 
+    and feature datasets. 
+    
+5. The runDataset is subsetted and selects the subject, code, and measurements in 
+creating tidyData by extracting measurements containing only mean and standard deviation.
+
+6. TidyData's variables are appropraitely renamed to be more descriptive. 
+    - Code column renamed to "activity".
+    - "Accelerometer" replaces all "Acc" in the columns.
+    - "Gyroscope" replaces all "Gyro" in the columns.
+    - "Body" replaces all "BodyBody" in the columns. 
+    - "Magnitude" replaces all "Mag" in the columns.
+    - "Frequency" replaces all "^f" in the columns.
+    - "TimeBody" replaces all the "tBody" in the columns.
+    - "Mean" replaces all the "-mean()" in the columns. 
+    - "STD" replaces all the "-std()" in the columns. 
+    - "Frequency" replaces all the "-freq()" in the columns. 
+    - "Angle" replaces all the "angle" in the columns.
+    - "Graviy" replaces all the "gravity" in the columns. 
+    
+7. An independent tidy dataset containing each activity's and subject's average is created
+form the runDataset and is exported as independentData into the indepdendentData.txt file. 
+
+
+
+
